@@ -14,7 +14,7 @@ describe("Testar com credenciais erradas", () =>{
     it("Testar com credenciais erradas", () =>{
         cy.visit("http://127.0.0.1:5500/frontend/index.html")
 
-        cy.get('#email').type("gabriel.l@aluno.senai.b")
+        cy.get('#email').type("gel.l@alno.snai.b")
         cy.get('#senha').type("134")
         cy.get('#login').click()
         
