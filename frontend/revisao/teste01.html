@@ -1,0 +1,105 @@
+<!-- 
+1-Visite a página e verifique se o formulário de login está presente.
+2-Teste um login válido com usuário "admin" e senha "1234" e valide a mensagem de sucesso.
+3-Teste um login inválido e valide a mensagem de erro.
+4-Verifique se o botão "Entrar" só está ativado quando ambos os campos são preenchidos. -->
+
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #218838;
+      }
+      #message {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Usuário" required />
+        <input type="password" id="password" placeholder="Senha" required />
+        <button type="submit">Entrar</button>
+      </form>
+      <p id="message"></p>
+    </div>
+
+    <script>
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (username === "admin" && password === "1234") {
+            document.getElementById("message").textContent =
+              "Login bem-sucedido!";
+            document.getElementById("message").style.color = "green";
+          } else {
+            document.getElementById("message").textContent =
+              "Usuário ou senha incorretos.";
+            document.getElementById("message").style.color = "red";
+          }
+        });
+      document.addEventListener("DOMContentLoaded", function () {
+        const username = document.getElementById("username");
+        const password = document.getElementById("password");
+        const button = document.querySelector("button");
+
+        function checkInputs() {
+          if (username.value.trim() !== "" && password.value.trim() !== "") {
+            button.disabled = false;
+          } else {
+            button.disabled = true;
+          }
+        }
+
+        username.addEventListener("input", checkInputs);
+        password.addEventListener("input", checkInputs);
+
+        // Inicialmente, desativa o botão
+        button.disabled = true;
+      });
+    </script>
+  </body>
+</html>

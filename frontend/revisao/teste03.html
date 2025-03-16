@@ -1,0 +1,93 @@
+<!-- 
+1-Verifique se o contador inicia em 0.
+2-Clique no botão "Incrementar" e confira se o contador aumenta corretamente.
+3-Clique no botão "Decrementar" e valide se o contador diminui.
+4-Pressione o botão "Resetar" e verifique se o contador volta para 0. -->
+
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contador</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 200px;
+        margin: auto;
+        margin-top: 50px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      p {
+        font-size: 2em;
+        font-weight: bold;
+      }
+      button {
+        margin: 5px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #increment {
+        background: #28a745;
+        color: white;
+      }
+      #increment:hover {
+        background: #218838;
+      }
+      #decrement {
+        background: #dc3545;
+        color: white;
+      }
+      #decrement:hover {
+        background: #c82333;
+      }
+      #reset {
+        background: #ffc107;
+        color: black;
+      }
+      #reset:hover {
+        background: #e0a800;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Contador</h2>
+      <p id="counter">0</p>
+      <button id="increment">Incrementar</button>
+      <button id="decrement">Decrementar</button>
+      <button id="reset">Resetar</button>
+    </div>
+
+    <script>
+      let count = 0;
+      document
+        .getElementById("increment")
+        .addEventListener("click", function () {
+          count++;
+          document.getElementById("counter").textContent = count;
+        });
+
+      document
+        .getElementById("decrement")
+        .addEventListener("click", function () {
+          count--;
+          document.getElementById("counter").textContent = count;
+        });
+
+      document.getElementById("reset").addEventListener("click", function () {
+        count = 0;
+        document.getElementById("counter").textContent = count;
+      });
+    </script>
+  </body>
+</html>
